@@ -6,8 +6,8 @@ function Character(name, type) {
   this.defence = 40;
 }
 
-Character.prototype.damage = (points = 0, character = {}) => {
-  if (Object.keys(character).length === 0) throw Error("Cannot read property 'defence' of undefined");
+Character.prototype.damage = (points, character) => {
+  if ((character || points) === undefined) throw new Error('one param equal undefined');
 
   const calc = points * (1 - character.defence / 100);
 

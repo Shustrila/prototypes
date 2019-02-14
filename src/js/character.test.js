@@ -1,6 +1,6 @@
 import Character from './character.js';
 
-const character = new Character('Shustrila', 'Танк');
+const character = new Character('Shustrila', 'Tank');
 
 describe('TEST: character', () => {
   test('normal damage', () => {
@@ -19,8 +19,13 @@ describe('TEST: character', () => {
     expect(character.health).toBe(expected);
   });
 
+  test('big damage', () => {
+    const characterDamage = () => character.damage.call(this);
+    expect(characterDamage).toThrow();
+  });
+
   test('forgot to specify user', () => {
-    character.damage.call(this, 3000);
-    expect(character.damage).toThrow(Error);
+    const characterDamage = () => character.damage.call(this, 3000);
+    expect(characterDamage).toThrow();
   });
 });
