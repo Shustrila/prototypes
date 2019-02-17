@@ -19,13 +19,8 @@ describe('TEST: character', () => {
     expect(character.health).toBe(expected);
   });
 
-  test('big damage', () => {
+  test('one param equal undefined', () => {
     const characterDamage = () => character.damage.call(this);
-    expect(characterDamage).toThrow();
-  });
-
-  test('forgot to specify user', () => {
-    const characterDamage = () => character.damage.call(this, 3000);
     expect(characterDamage).toThrow();
   });
 });

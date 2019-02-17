@@ -11,7 +11,7 @@ Character.prototype.damage = (points, character) => {
 
   const calc = points * (1 - character.defence / 100);
 
-  if (character.health > calc) character.health -= calc; else character.health = 0;
+  character.health > calc ? character.health -= calc : character.health = 0;
 };
 
 export default Character;
