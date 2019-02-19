@@ -6,12 +6,12 @@ function Character(name, type) {
   this.defence = 40;
 }
 
-Character.prototype.damage = (points, character) => {
-  if ((character || points) === undefined) throw new Error('one param equal undefined');
+Character.prototype.damage = function (points) {
+  if (points === undefined) throw new Error('one param equal undefined');
 
-  const calc = points * (1 - character.defence / 100);
+  const calc = points * (1 - this.defence / 100);
 
-  character.health > calc ? character.health -= calc : character.health = 0;
+  this.health > calc ? this.health -= calc : this.health = 0;
 };
 
 export default Character;
